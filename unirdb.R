@@ -7,6 +7,7 @@ unirdb <- function(x,y) {
         resp <- readline(prompt=" ¿Reordenar columnas? (s/n) ")
         while (continuar){
         if (resp == "s") {
+            return(unirdb(x,y[names(x)]))
             continuar <- FALSE
         } else if (resp == "n") {
             stop("No se modificaron los archivos")
@@ -14,7 +15,6 @@ unirdb <- function(x,y) {
             resp <- readline(prompt=" Responda sí (s) o no (n) ")
             continuar <- TRUE
         }
-        return(unirdb(x,y[names(x)]))
     }
     } else {
         stop(" Los archivos no tienen las mismas columnas")
